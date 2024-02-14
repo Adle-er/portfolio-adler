@@ -1,0 +1,398 @@
+* {
+    margin: 0;
+    padding: 0;
+    --bg: #111;
+    --details: #2079c8;
+    --lightdetails: #55acf9;
+    --textcolor: #ffff;
+    --timeline-titles: #2079c829;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--bg);
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--details);
+    border-radius: 10px;
+}
+
+html {
+    font-family: 'MedievalSharp', monospace;
+    font-family: 'Red Hat Display', sans-serif;
+    color: var(--textcolor);
+    background: var(--bg);
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 6rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3,
+h4 {
+    font-size: 3rem;
+}
+
+p {
+    font-size: 2rem;
+}
+
+input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 52px;
+    height: 27px;
+    background: grey;
+    float: right;
+    border-radius: 100px;
+    position: relative;
+}
+
+label::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+input:checked+label {
+    background-color: var(--bg);
+}
+
+input:checked+label::after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+label:active:after {
+    width: 45px;
+}
+
+header {
+    /* padding: 0px 50px; */
+    background: var(--bg);
+    z-index: 999;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.grid-layout {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.grid-layout-content {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+header .grid-layout nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0px 8px;
+    background: var(--bg);
+}
+
+header .grid-layout nav img {
+    width: 150px;
+    background: var(--bg);
+    border-radius: 15px;
+}
+
+header .grid-layout nav .nav-list {
+    list-style: none;
+    display: flex;
+    background: var(--bg);
+}
+
+header .grid-layout nav .nav-list li {
+    margin-left: 48px;
+}
+
+header .grid-layout nav .nav-list li a:hover {
+    color: var(--lightdetails);
+}
+
+header .grid-layout nav .nav-list li a {
+    color: var(--details);
+    position: relative;
+    font-size: 1.8rem;
+    background: var(--bg);
+}
+
+a {
+    text-decoration: none;
+}
+
+.txt-animado {
+    font-size: 2rem;
+    width: 60%;
+    line-height: 35px;
+}
+
+.txt-animado span {
+    position: relative;
+}
+
+.txt-animado span::before {
+    content: "";
+    font-weight: 800;
+    color: var(--details);
+    animation: texts 14s infinite;
+}
+
+.txt-animado span::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    right: -10%;
+    animation: blinkCursor .8s infinite, typing 22s steps(15) infinite;
+    width: calc(100% + 33px);
+    background-color: var(--bg);
+}
+
+@keyframes typing {
+
+    10%,
+    15%,
+    30%,
+    35%,
+    50%,
+    55%,
+    75%,
+    90%,
+    95% {
+        width: 0;
+    }
+
+    5%,
+    20%,
+    25%,
+    40%,
+    45%,
+    60%,
+    65%,
+    80%,
+    85% {
+        width: calc(100% + 33px);
+    }
+}
+
+@keyframes blinkCursor {
+    0% {
+        border-left: 5px solid var(--details);
+    }
+}
+
+@keyframes texts {
+
+    0%,
+    32% {
+        content: "Front-End Jr.";
+    }
+
+    33%,
+    62% {
+        content: "Desenvolvedor Back-End Jr.";
+    }
+
+    63%,
+    100% {
+        content: "Desenvolvedor Android Jr.";
+    }
+}
+
+
+
+div#home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url(../images/logo-home.png);
+    background-color: #111;
+    width: 100%;
+    background-position-x: right;
+    background-repeat: no-repeat;
+}
+
+div#quem-sou {
+    border: solid var(--details) 1px;
+    display: flex;
+    border-radius: 3px;
+    padding: 15px;
+    min-height: 90vh;
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+#quem-sou img {
+    width: 400px;
+    border-radius: 3px;
+    margin-right: 25px;
+}
+
+#quem-sou a>img {
+    width: 50px;
+    margin-top: 15px;
+    margin-right: 5px;
+    border: solid 1px var(--details);
+}
+
+#trajetoria>h2 {
+    text-align: center;
+    margin-top: 60px;
+}
+
+#projetos-pessoais>h2 {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.timeline {
+    padding: 40px 0px;
+    margin-bottom: 40px;
+}
+
+.timeline:before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 65px;
+    width: 3px;
+    height: calc(100% - 80px);
+}
+
+.timeline .column {
+    margin: 40px 40px 40px 120px;
+}
+
+.timeline .column .title h1 {
+    font-size: 120px;
+    color: var(--timeline-titles);
+    letter-spacing: 3px;
+}
+
+.timeline .column .title h1:before {
+    content: "";
+    position: absolute;
+    left: -62px;
+    top: 86px;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+}
+
+.timeline .column .title h2 {
+    margin-top: -60px;
+    font-size: 2.9rem;
+}
+
+.timeline .column .title h3 {
+    font-size: 2.5rem;
+    color: var(--timeline-titles);
+}
+
+.main {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 80px;
+}
+
+.main h1 {
+    font-size: 80px;
+    line-height: 60px;
+}
+
+.main p {
+    font-size: 13px;
+    line-height: 20px;
+    text-align: right;
+}
+
+.container-flex {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.container-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+@media only screen and (max-width: 765px) {
+    div#home {
+        background-image: none;
+        width: 90%;
+        padding: 10px;
+    }
+
+    div#quem-sou {
+        flex-direction: column;
+        width: 80%;
+    }
+
+    #quem-sou img {
+        width: 250px;
+        margin-right: 0px;
+    }
+
+    .grid-layout-content {
+        max-width: 100%;
+    }
+
+    .timeline .column .title h1 {
+        font-size: 50px;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    .txt-animado {
+        font-size: 1.7rem;
+        width: 80%;
+        line-height: 35px;
+    }
+
+    .timeline .column {
+        margin: 20px 20px 35px 20px;
+    }
+
+    .timeline .column .title h2 {
+        margin-top: -5px;
+        font-size: 2.1rem;
+    }
+}

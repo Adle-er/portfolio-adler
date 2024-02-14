@@ -1,0 +1,16 @@
+@media only screen and (max-width: 765px) {
+
+    header .grid-layout nav .nav-list {
+        display: none;
+    }
+
+    header .grid-layout nav img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    div#home {
+        min-height: 75vh;
+    }
+
+}
